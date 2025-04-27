@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>My Reveal.js Presentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/black.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css"
+    />
+    <link
+    rel="stylesheet"
+    href="./stilys.css"
+  />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>GraphQL vs REST API Design</h1>
+          <p class="center">Simple overview for developers</p>
+        </section>
+        <section>
+          <h2>What is REST?</h2>
+          <ul>
+            <li>Representational State Transfer</li>
+            <li>Uses URLs to access resources</li>
+            <li>Each resource has its own endpoint</li>
+            <li>Common HTTP methods: GET, POST, PUT, DELETE</li>
+          </ul>
+          <pre><code data-trim>
+                GET /users/1          
+        </code></pre>
+        </section>
+        <section>
+          <h2>What is GraphQL?</h2>
+          <ul>
+            <li>Query Language for APIs</li>
+            <li>Ask for exactly the data you need</li>
+            <li>Single endpoint for all data</li>
+            <li>Flexible and powerful queries</li>
+          </ul>
+          <pre><code data-trim >
+                {
+                    user(id: 1) {
+                      name
+                      email
+                    }
+                  }
+            </code></pre>
+        </section>
+        <section>
+          <h2>Key Differences</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>REST</th>
+                <th>GraphQL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr >
+                <td>Multiple endpoints</td>
+                <td>One endpoint</td>
+              </tr>
+              <tr >
+                <td>Fixed data structure</td>
+                <td>Flexible data structure</td>
+              </tr>
+              <tr >
+                <td>Over-fetching or under-fetching possible</td>
+                <td>Only fetch what you need</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section>
+          <h2>Advantages of REST</h2>
+          <ul>
+            <li class="fragment">Simple and well-known</li>
+            <li class="fragment">Good for public APIs</li>
+            <li class="fragment">Better for small data requests</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Advantages of GraphQL</h2>
+          <ul>
+            <li class="fragment">Reduces number of network requests</li>
+            <li class="fragment">Ideal for complex systems</li>
+            <li class="fragment">Good for mobile apps with changing needs</li>
+          </ul>
+        </section>
+        <section>
+          <p>GraphQL example to get user and posts together:</p>
+          <pre><code data-trim > 
+            {
+              user(id: 1) {
+              name
+              posts {
+                title
+                content
+                }
+              }
+            }
+            </code></pre>
+        </section>
+        <section>
+          <p>REST example to get user and posts separately:</p>
+          <pre><code data-trim>
+              /* Get the user */
+              GET /users/1
+              
+              /* Get the user's posts */
+              GET /users/1/posts
+            </code></pre>
+        </section>
+        <section>
+          <h2>When to Use?</h2>
+          <p><strong>Use REST</strong> when APIs are simple and stable</p>
+
+          <p>
+            <strong>Use GraphQL</strong> when you need flexibility and
+            efficiency
+          </p>
+          <p>And sometimes you can combine them</p>
+        </section>
+
+        <section>
+          <h2>Summary</h2>
+          <ul>
+            <li>REST and GraphQL are both great tools.</li>
+            <li>Choose based on project needs.</li>
+            <li>Understand the strengths of each approach!</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>
